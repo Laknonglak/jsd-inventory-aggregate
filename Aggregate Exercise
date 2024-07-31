@@ -1,0 +1,13 @@
+SELECT 
+    category_id,
+    ROUND(AVG(unit_price), 2) AS AvgUnitPrice,
+    SUM(quantity_in_stock) AS TotalQuantity,
+    MAX(unit_price) AS MaxUnitPrice,
+    MIN(unit_price) AS MinUnitPrice,
+    COUNT(*) AS ProductCount
+FROM 
+    Products
+GROUP BY 
+    category_id
+HAVING 
+    AVG(unit_price) > 2;
